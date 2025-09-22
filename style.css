@@ -640,6 +640,9 @@ header.active .nav-link:hover {
             overflow: hidden;
             border-radius: 0.5rem;
             transition: transform 0.3s ease-in-out;
+            content-visibility: auto;
+            contain-intrinsic-size: 250px;
+            will-change: transform;
         }
 
         .gallery-item img {
@@ -1541,3 +1544,4 @@ div.full figure:not(.expanded) {
     }
 
 }
+
