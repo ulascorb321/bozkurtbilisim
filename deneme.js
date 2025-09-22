@@ -215,3 +215,13 @@ logo.classList.add('animate-in');
 text.classList.add('animate-in');
 }, 100);
 });
+
+// yükleniyor ekranı başlangıç
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 500); // 500ms gecikme (isteğe bağlı, animasyon için)
+        });
+
+//yükleniyor ekranı bitiş
