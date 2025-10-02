@@ -53,7 +53,8 @@
     height: 100%;
     background: #fff;
     display: flex;
-    flex-direction: column; /* Dikey hizalama için */
+    flex-direction: column;
+    /* Dikey hizalama için */
     justify-content: center;
     align-items: center;
     z-index: 9999;
@@ -61,10 +62,14 @@
 }
 
 .loader-text {
-    margin-top: 10px; /* Logo ile yazı arasındaki boşluk */
-    font-size: 18px; /* Yazı boyutu */
-    color: rgb(12, 2, 80); /* Yazı rengi */
-    font-family: Arial, sans-serif; /* Yazı tipi */
+    margin-top: 10px;
+    /* Logo ile yazı arasındaki boşluk */
+    font-size: 18px;
+    /* Yazı boyutu */
+    color: rgb(12, 2, 80);
+    /* Yazı rengi */
+    font-family: Arial, sans-serif;
+    /* Yazı tipi */
     align-items: center;
 }
 
@@ -830,6 +835,192 @@ header.active .nav-link:hover {
 .social-media i:hover {
     transform: scale(1.5);
 }
+
+/*yedekleme başlangıç*/
+.yedekp {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.yedekol {
+    list-style: none;
+    counter-reset: list;
+    padding: 0 1rem;
+}
+
+.yedekli {
+    --stop: calc(100% / var(--length) * var(--i));
+    --l: 62%;
+    --l2: 88%;
+    --h: calc((var(--i) - 1) * (180 / var(--length)));
+    --c1: hsl(var(--h), 71%, var(--l));
+    --c2: hsl(var(--h), 71%, var(--l2));
+
+    position: relative;
+    counter-increment: list;
+    max-width: 45rem;
+    margin: 2rem auto;
+    padding: 2rem 1rem 1rem;
+    box-shadow: 0.1rem 0.1rem 1.5rem rgba(0, 0, 0, 0.3);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    background-color: white;
+}
+
+.yedekli::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, var(--c1) var(--stop), var(--c2) var(--stop));
+}
+
+.yedekh3 {
+    display: flex;
+    align-items: baseline;
+    margin: 0 0 1rem;
+    color: rgb(70 70 70);
+}
+
+.yedekh3::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    content: counter(list);
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: var(--c1);
+    color: white;
+}
+
+@media (min-width: 40em) {
+    .yedekli {
+        margin: 3rem auto;
+        padding: 3rem 2rem 2rem;
+    }
+
+    .yedekh3 {
+        font-size: 2.25rem;
+        margin: 0 0 2rem;
+    }
+
+    .yedekh3::before {
+        margin-right: 1.5rem;
+    }
+}
+
+.yedeklemeh1 {
+    font-family: sans-serif;
+}
+
+.olcards,
+.olcards * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.olcards {
+    list-style: none;
+    counter-reset: cardCount;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    --cardsGap: 1rem;
+    gap: var(--cardsGap);
+    padding-bottom: var(--cardsGap);
+}
+
+.olcards li {
+    counter-increment: cardCount;
+    display: flex;
+    color: white;
+    --labelOffset: 1rem;
+    --arrowClipSize: 1.5rem;
+    margin-top: var(--labelOffset);
+}
+
+.olcards li::before {
+    content: counter(cardCount, decimal-leading-zero);
+    background: white;
+    color: var(--cardColor);
+    font-size: 2em;
+    font-weight: 700;
+    transform: translateY(calc(-1 * var(--labelOffset)));
+    margin-right: calc(-1 * var(--labelOffset));
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 0.5em;
+}
+
+.olcards li .content {
+    background-color: var(--cardColor);
+    --inlinePadding: 1em;
+    --boxPadding: 0.5em;
+    display: grid;
+    padding: var(--boxPadding) calc(var(--inlinePadding) + var(--arrowClipSize)) var(--boxPadding) calc(var(--inlinePadding) + var(--labelOffset));
+    grid-template-areas:
+        "icon title"
+        "icon text";
+    gap: 0.25em 1em;
+    clip-path: polygon(0 0,
+            calc(100% - var(--arrowClipSize)) 0,
+            100% 50%,
+            calc(100% - var(--arrowClipSize)) 100%,
+            calc(100% - var(--arrowClipSize)) calc(100% + var(--cardsGap)),
+            0 calc(100% + var(--cardsGap)));
+    position: relative;
+}
+
+.olcards li .content::before {
+    content: "";
+    position: absolute;
+    width: var(--labelOffset);
+    height: var(--labelOffset);
+    background: var(--cardColor);
+    left: 0;
+    bottom: 0;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    filter: brightness(0.75);
+}
+
+.olcards li .content::after {
+    content: "";
+    position: absolute;
+    height: var(--cardsGap);
+    width: var(--cardsGap);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent 50%);
+    left: 0;
+    top: 100%;
+}
+
+.olcards li .icon {
+    grid-area: icon;
+    align-self: center;
+    font-size: 2em;
+}
+
+.olcards li .content .title {
+    grid-area: title;
+    font-size: 1.25em;
+    /* font-weight: 700; */
+}
+
+.olcards li .content .text {
+    grid-area: text;
+}
+
+
+/*yedekleme sayfası bitiş*/
 
 .footer-bottom {
     padding: 10px;
