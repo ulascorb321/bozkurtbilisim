@@ -23,33 +23,6 @@
         const sliderItem = slider.querySelector(".slider__item");
         var isMultislide = (slider.dataset.multislide === 'true');
 
-        // Otomatik geçiş fonksiyonu (yeni tam ekran slider için)
-        function startAutoSlide() {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(() => {
-                if (!isDragging && !isSlide) {
-                    let slideWidth = isMultislide ? slider.clientWidth : sliderItem.clientWidth;
-                    slider.scrollLeft += slideWidth;
-                    if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth)) {
-                        slider.scrollLeft = 0; // Sonuna gelince başa dön
-                    }
-                }
-            }, 5000); // 5 saniye arayla geçiş
-        }
-
-        // Otomatik geçişi başlat (sadece tam ekran slider için)
-        if (slider.closest('.full-screen-slider')) {
-            startAutoSlide();
-        }
-
-        // Kullanıcı etkileşimi olduğunda otomatik geçişi durdur ve yeniden başlat
-        function resetAutoSlide() {
-            if (slider.closest('.full-screen-slider')) {
-                clearInterval(autoSlideInterval);
-                startAutoSlide();
-            }
-        }
-
         sliderControlPrev[i].addEventListener('click', () => {
             if (isSlide) return;
             isSlide = true;
