@@ -198,3 +198,21 @@ text.classList.add('animate-in');
         });
 
 //yükleniyor ekranı bitiş
+
+//yedekleme ekranı başlangıç
+const items = document.querySelectorAll('.feature-item');
+  const image = document.getElementById('featureImage');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      items.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      const newImage = item.getAttribute('data-image');
+      image.style.opacity = 0;
+      setTimeout(() => {
+        image.src = newImage;
+        image.style.opacity = 1;
+      }, 300);
+    });
+  });
+//yedekleme ekranı bitiş
