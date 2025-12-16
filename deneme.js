@@ -216,3 +216,26 @@ const items = document.querySelectorAll('.feature-item');
     });
   });
 //yedekleme ekranı bitiş
+
+//ana sayfa slider başlangıç
+
+const slides = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5', 'slide6'];
+        let current = 0;
+
+        // Tüm slideleri başta gizle
+        slides.forEach(id => {
+            document.getElementById(id).style.opacity = '0';
+        });
+
+        // İlk slide'ı göster
+        document.getElementById('slide1').style.opacity = '1';
+
+        function nextSlide() {
+            document.getElementById(slides[current]).style.opacity = '0';
+            current = (current + 1) % slides.length;
+            document.getElementById(slides[current]).style.opacity = '1';
+        }
+
+        setInterval(nextSlide, 3000);
+
+//ana sayfa slider bitiş

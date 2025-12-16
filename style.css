@@ -213,6 +213,83 @@ header.active .nav-link:hover {
 
 /*fotoğraf üstündeki logo ve yazı bitiş*/
 
+/*ana sayfa slider başlangıç*/
+
+#slider-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    margin-top: 5%;
+}
+
+/* Tüm slideler */
+#slide1,
+#slide2,
+#slide3,
+#slide4,
+#slide5,
+#slide6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* İçteki resimler tam kaplasın */
+#img1,
+#img2,
+#img3,
+#img4,
+#img5,
+#img6 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Resim kırpılmadan tam kaplar */
+}
+
+/* Karartma katmanları */
+#overlay1,
+#overlay2,
+#overlay3,
+#overlay4,
+#overlay5,
+#overlay6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+/* Başlıklar */
+#title1,
+#title2,
+#title3,
+#title4,
+#title5,
+#title6 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.9);
+    z-index: 10;
+    margin: 0;
+    padding: 20px;
+}
+
+/*ana sayfa slider bitiş*/
+
 .button2 {
     position: relative;
     margin: 0;
@@ -630,6 +707,110 @@ header.active .nav-link:hover {
 .bizKimiz {
     margin-top: 5%;
 }
+
+/*hizmetler neler yapayıyoruz başlangıç*/
+
+#liste-konteyner {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#liste {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: list-item;
+}
+
+#liste-baslik {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+#liste-baslik::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+#liste li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    margin-bottom: 30px;
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+}
+
+#liste li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+#liste li::before {
+    content: "0" counter(list-item);
+    counter-increment: list-item;
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 35px;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+#liste li p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #1f2937;
+}
+
+#liste li strong {
+    color: #111827;
+    font-size: 24px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    #liste-baslik {
+        font-size: 32px;
+    }
+
+    #liste li {
+        padding: 30px 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #liste li::before {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/*hizmetler neler yapıyoruz bitiş*/
+
 
 /*galeri başlangıç*/
 
