@@ -130,6 +130,8 @@ header.active .nav-link:hover {
     color: #808080;
 }
 
+
+
 /*fotoğraf üstündeki logo ve yazı başlangıç*/
 
 /* Logo ve yazı için konteyner */
@@ -378,6 +380,9 @@ header.active .nav-link:hover {
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.521);
     position: relative;
 }
+
+
+
 
 .photo-cards-section {
     background: #ffffff;
