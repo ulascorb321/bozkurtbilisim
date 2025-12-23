@@ -377,10 +377,14 @@ header.active .nav-link:hover {
 #f1 {
     height: 100vh;
     width: 100%;
+    background-size: cover;
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.521);
     position: relative;
-    object-fit: cover;
+    background-image: url("aa.avif");
 }
+
+
+
 
 .photo-cards-section {
     background: #ffffff;
@@ -636,6 +640,186 @@ header.active .nav-link:hover {
     border-radius: 3%;
 }
 
+/*PROJE DETAY SAYFA BAŞLANGICI*/
+
+/* Genel stil ayarları */
+
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+    /* Metinlerin üstte kalması için */
+}
+
+#projedetayust {
+    margin-top: 10%;
+    text-align: center;
+    padding: 150px 0 120px;
+    width: 100%;
+    background: url('anten.jpg') no-repeat center center/cover;
+    /* Arka plan görseli */
+    position: relative;
+    color: #fff;
+    /* Metin rengini beyaz yaptım, görsele göre kontrast iyi olsun */
+
+}
+
+/* Overlay için karanlık katman (metin okunurluğu için) */
+#projedetayust::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    /* Hafif siyah overlay */
+    z-index: 1;
+}
+
+#sparkle {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+#title {
+    font-size: 4.5rem;
+    margin: 0;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+#subtitle {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 40px auto 0;
+    position: relative;
+    z-index: 2;
+}
+
+#works-section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+#works-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+#works-description {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    color: #666;
+}
+
+#works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.project {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.project-title {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.project-type {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin: 0 20px;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .arrow {
+        display: block;
+    }
+
+    #title {
+        font-size: 2rem;
+    }
+
+
+
+    #subtitle {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 40px auto 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    #projedetayust {
+        padding: 100px 0 80px;
+        margin-top: 40%;
+    }
+
+    #works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arrow {
+        margin: 20px auto;
+        font-size: 2rem;
+    }
+}
+
+#projedetayalt {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #7147028b;
+    color: #fff;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#projedetayalt-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#projedetayalt-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/*PROJE DETAY SAYFA BİTİŞİ*/
+
 /*projeler sayfası başlangıç*/
 
 .projects-section {
@@ -659,7 +843,9 @@ header.active .nav-link:hover {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    text-decoration: none;
 }
+
 
 .project-card:hover {
     transform: translateY(-5px);
