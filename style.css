@@ -377,14 +377,10 @@ header.active .nav-link:hover {
 #f1 {
     height: 100vh;
     width: 100%;
-    background-size: cover;
     box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.521);
     position: relative;
-    background-image: url("aa.avif");
+    object-fit: cover;
 }
-
-
-
 
 .photo-cards-section {
     background: #ffffff;
